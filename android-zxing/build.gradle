@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 26
@@ -21,6 +22,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
+
 
 }
 
@@ -30,5 +35,16 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    implementation files('libs/core-3.3.1.jar')
+    compile 'com.google.zxing:core:3.3.1'
+
+}
+
+
+publish {
+    userOrg = 'sunshuai0518'
+    groupId = 'com.sunshuai'
+    artifactId = 'android-zxing'
+    publishVersion = '1.0.0'
+    desc = 'android-zxing'
+    website = 'https://github.com/Sun-Shuai/'
 }
